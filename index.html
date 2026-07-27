@@ -1,79 +1,576 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-night-electric">
-    <title>화곡 가라오케 예약 — 처음 방문자를 위한 조건별 선택 안내</title>
-    <meta name="description" content="화곡 가라오케 예약을 위한 처음 방문자를 위한 조건별 선택 안내. 화곡 가라오케 예약에 필요한 모든 정보를 제공합니다.">
-    <meta name="keywords" content="화곡 가라오케 예약, 가라오케 예약, 처음 방문자, 조건별 선택">
-    <link rel="canonical" href="https://hwagok-song-note.link-hub.org/">
-    <meta property="og:title" content="화곡 가라오케 예약 — 처음 방문자를 위한 조건별 선택 안내">
-    <meta property="og:description" content="화곡 가라오케 예약을 위한 처음 방문자를 위한 조건별 선택 안내. 화곡 가라오케 예약에 필요한 모든 정보를 제공합니다.">
-    <style>
-        body { font-family: sans-serif; background: #0a0a0a; color: #f0f0f0; margin: 0; padding: 20px; }
-        .k-head-2z6x { border-bottom: 2px solid #33ff00; padding-bottom: 10px; margin-bottom: 20px; color: #33ff00; }
-        nav { margin-bottom: 30px; display: flex; gap: 15px; }
-        nav a { color: #fff; text-decoration: none; font-weight: bold; }
-        section { margin-bottom: 40px; }
-        h2 { color: #33ff00; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { border: 1px solid #444; padding: 20px; background: #1a1a1a; }
-        @media (max-width: 768px) { .grid-container { grid-template-columns: 1fr; } }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="bpaas-design-system" content="editorial-apple">
+  <meta name="bpaas-design-theme" content="kr-warm-grid">
+  <title>화곡 가라오케 예약 — 언제 정하고 언제 움직여야 하는지에 관한 시점 기반 안내</title>
+  <meta name="description" content="화곡 가라오케 예약을 준비하는 실무자를 위한 타이밍 가이드. 미리 정할수록 유리한 항목과 당일에 정해도 괜찮은 선택지를 시간대별로 구분하고, 참석자 전체의 흐름을 기준으로 판단하는 방법을 정리했습니다." />
+  <meta name="keywords" content="화곡 가라오케 예약, 화곡 가라오케, 가라오케 예약, 화곡 노래방, 가라오케 시간대, 단체 모임 예약" />
+  <link rel="canonical" href="https://hwagok-song-note.link-hub.org/">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hwagok-song-note.link-hub.org/">
+  <meta property="og:title" content="화곡 가라오케 예약 — 시점과 타이밍으로 결정하는 모임 준비 가이드" />
+  <meta property="og:description" content="참석자 전체의 흐름을 기준으로, 화곡 가라오케 예약을 언제 어떻게 결정해야 실무 부담이 줄어드는지 분석합니다. 미리 정할 항목과 당일 결정 항목을 나누어 시간대별 전략을 제공합니다." />
+  <meta property="og:image" content="https://hwagok-song-note.link-hub.org/og-image.jpg" />
+  <meta property="og:image:alt" content="모노스페이스 타이포그래피로 정렬된 가라오케 예약 타임테이블 컨셉 이미지" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://hwagok-song-note.link-hub.org/" />
+  <meta name="twitter:title" content="화곡 가라오케 예약 — 시점 기반 결정 가이드" />
+  <meta name="twitter:description" content="같은 결정도 언제 하느냐에 따라 결과가 달라집니다. 참석자 전체를 고려한 타이밍 전략과 시간대별 선택지를 정리했습니다." />
+  <meta name="twitter:image" content="https://hwagok-song-note.link-hub.org/og-image.jpg" />
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://hwagok-song-note.link-hub.org/#business",
+          "name": "화곡 가라오케 예약 안내",
+          "description": "화곡 가라오케 예약 타이밍에 초점을 맞춘 정보 제공 페이지. 시점별로 유리한 선택지를 정리하여 실무자의 부담을 줄입니다.",
+          "url": "https://hwagok-song-note.link-hub.org/",
+          "areaServed": {
+            "@type": "City",
+            "name": "서울"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "화곡",
+            "addressRegion": "서울"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "김지환",
+            "description": "서울 서남권 지역 정보를 5년간 정리해온 로컬 가이드. 모임 준비 실무를 줄이는 시점 분석을 주로 다룹니다."
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://hwagok-song-note.link-hub.org/#service",
+          "name": "화곡 가라오케 예약 타이밍 컨설팅",
+          "serviceType": "가라오케 예약 정보",
+          "provider": { "@id": "https://hwagok-song-note.link-hub.org/#business" },
+          "areaServed": {
+            "@type": "City",
+            "name": "서울 화곡"
+          },
+          "description": "예약 시점, 당일 시간대별 조건, 인원 확정 시나리오에 따른 선택지를 제공합니다."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "홈",
+              "item": "https://hwagok-song-note.link-hub.org/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "화곡 가라오케 예약 안내",
+              "item": "https://hwagok-song-note.link-hub.org/#main-content"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "화곡 가라오케 예약은 몇 시에 걸어야 가장 유리한가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "오후 1시에서 3시 사이에 예약을 확정하는 것이 가장 유리합니다. 이 시간대는 전날 밤 취소분이 반영되고 당일 저녁 피크 예약이 몰리기 전이라 선택지가 넓습니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "인원이 아직 확정되지 않았을 때 예약은 언제 해야 하나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "최소 인원과 최대 인원을 동시에 전달하고, D-3 시점에 최종 인원을 확정 짓는 조건으로 예약을 협의하세요. 대부분의 예약 담당자는 변동 폭을 미리 알고 있으면 대응이 수월합니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "당일 예약도 가능한 시간대가 있나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "평일 오후 5시 이전이나 주말 이른 오후 1시 전후라면 당일 예약도 가능성이 있습니다. 다만 인원이 6명을 넘는다면 당일보다는 전날 오후 9시쯤 미리 예약하는 편이 안전합니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "화곡 가라오케 예약 시 어떤 정보를 미리 준비해야 하나요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "예약할 때는 정확한 인원, 희망 시간대, 선호하는 룸 타입, 그리고 특별 요청사항(예: 마이크 추가, 프로젝터 이용) 등을 정리해 두면 예약 프로세스가 빨라집니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <style>
+    /* Swiss Minimal + Terminal Mono / Classic Editorial hybrid */
+    :root {
+      --primary: #2d2a26;
+      --secondary: #faf8f5;
+      --accent: #e07a5f;
+      --font-mono: 'SF Mono', 'Cascadia Code', 'Consolas', 'Monaco', monospace;
+      --font-serif: 'Times New Roman', 'Georgia', 'Palatino', serif;
+      --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      --border-thin: 1px solid #2d2a26;
+      --border-hairline: 1px solid rgba(45, 42, 38, 0.1);
+      --shadow-minimal: 0 2px 8px rgba(0, 0, 0, 0.01);
+      --space-section: 120px;
+      --space-mobile-section: 60px;
+      --max-width-reader: 760px;
+      --gap-standard: 32px;
+      --padding-standard: 48px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--secondary);
+      color: var(--primary);
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .n-main-ojnv {
+      max-width: var(--max-width-reader);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Navigation */
+    .m-list-offx {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 32px 0;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 40px;
+    }
+
+    .k-list-om69 {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .v-btn-rjxo ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .v-btn-rjxo li {
+      transition: color 0.2s ease;
+    }
+    .v-btn-rjxo li a {
+      text-decoration: none;
+      color: var(--primary);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+      transition: border-color 0.2s;
+    }
+    .v-btn-rjxo li a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .k-head-ietb {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      color: var(--primary);
+    }
+
+    /* Main Content */
+    .x-item-i149 {
+      padding: 80px 0 60px;
+      border-bottom: 1px solid var(--primary);
+      margin-bottom: 60px;
+    }
+
+    .x-item-i149-title {
+      font-family: var(--font-serif);
+      font-size: 3.8rem;
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      color: var(--primary);
+    }
+
+    .t-hero-4lu8::first-letter {
+      float: left;
+      font-size: 5.5rem;
+      line-height: 0.8;
+      margin-right: 16px;
+      margin-top: 4px;
+      font-weight: 500;
+      color: var(--accent);
+      font-family: var(--font-serif);
+    }
+
+    .x-item-i149-lead {
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      font-weight: 350;
+      color: #3d3a36;
+      max-width: 620px;
+      margin-top: 16px;
+      border-left: 3px solid var(--accent);
+      padding-left: 24px;
+    }
+
+    .m-img-wp0a {
+      padding: var(--space-section, 120px) 0;
+      border-bottom: var(--border-hairline);
+    }
+
+    .m-img-wp0a:last-of-type {
+      border-bottom: none;
+    }
+
+    .m-img-wp0a-title {
+      font-family: var(--font-mono);
+      font-size: 1.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--primary);
+      padding-bottom: 16px;
+      display: inline-block;
+    }
+
+    .t-ico-ze0a {
+      margin-bottom: 28px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      font-weight: 350;
+    }
+
+    .t-item-amqz-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-standard);
+      margin: 32px 0;
+    }
+
+    .v-main-6lfd {
+      background: #ffffff;
+      border: 1px solid var(--primary);
+      padding: 28px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-minimal);
+      font-family: var(--font-mono);
+      transition: all 0.2s;
+    }
+
+    .v-main-6lfd:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 10px rgba(224, 122, 95, 0.08);
+    }
+
+    .v-main-6lfd h3 {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      border-left: 4px solid var(--accent);
+      padding-left: 14px;
+    }
+
+    .k-txt-itmw {
+      list-style: none;
+      margin: 18px 0;
+    }
+
+    .k-txt-itmw li {
+      font-family: var(--font-mono);
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(45, 42, 38, 0.2);
+      display: flex;
+      align-items: baseline;
+    }
+
+    .k-txt-itmw li::before {
+      content: ">";
+      margin-right: 12px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .x-hero-ur42 {
+      margin: 48px 0;
+      padding-left: 24px;
+      border-left: 2px solid var(--primary);
+    }
+
+    .x-hero-ur42-item {
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .x-hero-ur42-item::before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .t-foot-d1ud {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .n-card-fv5m {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-style: italic;
+      line-height: 1.5;
+      padding: 32px 24px;
+      margin: 48px 0;
+      border-top: 2px solid var(--primary);
+      border-bottom: 2px solid var(--primary);
+      color: #2d2a26;
+    }
+
+    .q-side-643e-bio {
+      margin-top: 80px;
+      padding: 32px 0;
+      border-top: 2px solid var(--primary);
+      font-family: var(--font-mono);
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .q-side-643e-avatar {
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      border-radius: 8px;
+    }
+
+    .r-side-nlx6 {
+      text-align: center;
+      padding: 48px 0;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-top: 1px solid var(--primary);
+      margin-top: 60px;
+    }
+
+    img[alt^="graphic_element"] {
+      display: block;
+      width: 100%;
+      height: 4px;
+      background: var(--accent);
+      opacity: 0.3;
+      margin: 40px 0;
+    }
+
+    @media (max-width: 768px) {
+      .x-item-i149-title {
+        font-size: 2.5rem;
+      }
+      .t-item-amqz-2col,
+      .v-nav-zipg-2col {
+        grid-template-columns: 1fr;
+      }
+      .m-img-wp0a {
+        padding: 60px 0;
+      }
+      .v-btn-rjxo ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        right: 24px;
+        background: var(--secondary);
+        border: 1px solid var(--primary);
+        padding: 16px;
+        border-radius: 8px;
+        z-index: 10;
+      }
+      .v-btn-rjxo ul.active {
+        display: flex;
+      }
+      .k-head-ietb {
+        display: block;
+      }
+      .q-side-643e-bio {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="n-main-ojnv">
+    <header class="m-list-offx" role="banner">
+      <div class="k-list-om69">화곡 가라오케 예약</div>
+      <nav class="v-btn-rjxo" aria-label="메인 네비게이션">
+        <button class="k-head-ietb" id="hamburger-btn" aria-label="메뉴 열기">[ ]</button>
+        <ul id="nav-list">
+          <li style="order:2"><a href="#timing">시점 전략</a></li>
+          <li style="order:1"><a href="#preparation">사전 결정</a></li>
+          <li style="order:3"><a href="#faq-section">FAQ</a></li>
+          <li style="order:4"><a href="#author">저자</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<header>
-    <h1 class="k-head-2z6x">화곡 가라오케 예약 가이드</h1>
-    <nav>
-        <a href="/">홈</a>
-        <a href="/guide">이용 안내</a>
-        <a href="/check">예약 확인</a>
-    </nav>
-</header>
+    <main id="main-content">
+      <section class="x-item-i149" role="region" aria-label="히어로 소개">
+        <h1 class="x-item-i149-title">언제 정하고<br>언제 움직일 것인가</h1>
+        <p class="x-item-i149-lead t-hero-4lu8">
+          화곡 가라오케 예약은 단순한 시간 결정 이상입니다. 같은 장소, 같은 인원이라도 의사 결정 시점에 따라 결과가 크게 달라집니다. 이 안내는 참석자 전체를 기준으로 언제 무엇을 확정해야 실무 부담이 줄어드는지에 초점을 맞췄습니다.
+        </p>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="graphic_element_8712" width="100%" height="2" style="margin:32px 0; background: #2d2a26;">
+      </section>
 
-<main>
-    <section>
-        <h2>화곡에서 가라오케를 찾는 당신을 위한 지도</h2>
-        <p>화곡동의 밤은 생각보다 깊고, 그 속에서 적절한 장소를 고르는 일은 처음 방문하는 이들에게 마치 미로를 찾는 것과 같습니다. '화곡 가라오케 예약'이라는 키워드를 검색창에 넣었을 때 쏟아지는 수많은 정보 중에서, 나에게 꼭 맞는 곳을 선별하는 것은 단순히 운에 맡길 일이 아닙니다. 이 안내서는 복잡한 도시의 야간 교통망을 따라가듯, 여러분이 가장 효율적으로 최적의 공간에 안착할 수 있도록 돕기 위해 작성되었습니다.</p>
-        <p>어떤 목적을 가지고 계신가요? 비즈니스를 위한 접대 자리일 수도 있고, 오랜 친구들과의 가벼운 회식, 혹은 혼자만의 시간을 보내고 싶은 밤일 수도 있습니다. 화곡 지역은 소규모 프라이빗 룸부터 대규모 단체까지 수용 가능한 다양한 업장들이 밀집해 있어, 상황에 맞는 전략적인 선택이 무엇보다 중요합니다. 예약을 진행하기 전, 반드시 고려해야 할 변수들을 하나씩 정리해 보겠습니다.</p>
-    </section>
-
-    <section>
-        <h2>상황별 예약 전략: 인원과 분위기</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>소규모 모임 (2~4인)</h3>
-                <p>소규모 인원이라면 공간의 효율성과 오디오 시스템의 퀄리티를 우선순위에 두어야 합니다. 너무 넓은 공간은 오히려 집중도를 떨어뜨릴 수 있으므로, 아늑하고 밀도 높은 룸을 예약하는 것이 좋습니다. 특히 평일 저녁이나 주말 피크 타임을 피해서 예약하면 보다 여유로운 서비스 환경을 보장받을 수 있습니다.</p>
-                <p>또한, 예약 시 조용한 구석 자리나 창가 쪽 자리를 선호하는지 미리 언급하는 것이 좋습니다. 작은 디테일 하나가 밤의 분위기를 완전히 바꿔놓을 수 있기 때문입니다.</p>
-            </div>
-            <div class="card">
-                <h3>대규모 회식 및 단체 (8인 이상)</h3>
-                <p>단체 예약은 무엇보다 접근성과 룸의 크기가 핵심입니다. 화곡 내에서도 주차 시설이 완비되어 있는지, 혹은 대중교통으로의 접근성이 얼마나 용이한지가 참석자들의 만족도를 결정합니다. 예약 시 인원수를 정확히 고지하고, 필요하다면 테이블 배치를 사전에 논의하는 것이 현명합니다.</p>
-                <p>단체 이용 시에는 음향 설비의 사양과 마이크 개수를 미리 확인하세요. 모두가 즐길 수 있는 환경이 조성되어 있는지 확인하는 과정 자체가 성공적인 모임을 위한 첫걸음입니다.</p>
-            </div>
+      <section class="m-img-wp0a" id="preview" role="region" aria-label="미리 정할수록 유리한 항목">
+        <h2 class="m-img-wp0a-title">미리 정할수록 유리한 항목</h2>
+        <div class="t-item-amqz-2col">
+          <div class="v-main-6lfd">
+            <h3>인원 범위</h3>
+            <p class="t-ico-ze0a">최소 4명에서 최대 12명까지 확정하지 못한 상태라면, 3일 전까지 폭을 정해 전달합니다. 현격한 변동은 룸 배정과 직결됩니다.</p>
+          </div>
+          <div class="v-main-6lfd">
+            <h3>시간대 선호</h3>
+            <p class="t-ico-ze0a">오후 7시-9시 피크존은 5일 전 예약이 필수적입니다. 늦은 밤 10시 이후는 당일도 가능하지만, 주말은 예외입니다.</p>
+          </div>
         </div>
-    </section>
+        <ul class="k-txt-itmw">
+          <li><strong>룸 스타일</strong> — 흡연/비흡연, 창문 유무는 사전에만 지정 가능</li>
+          <li><strong>사운드 체크</strong> — 특정 마이크나 연결 단자 요청 시 최소 2일 전</li>
+        </ul>
+      </section>
 
-    <section>
-        <h2>예약 전 반드시 체크해야 할 기준</h2>
-        <p>무작정 예약을 시도하기 전에 몇 가지 확인해야 할 체크리스트가 있습니다. 첫째, 해당 업장이 운영하는 시간대와 휴무일을 명확히 파악해야 합니다. 화곡의 가라오케는 업장마다 오픈 시간이 상이하며, 특정 요일에는 예약이 집중되어 조기 마감되는 경우가 빈번합니다. 따라서 최소 하루 전에는 연락을 취해 일정을 확정하는 것이 좋습니다.</p>
-        <p>둘째, 제공되는 서비스의 범위입니다. 단순 음주와 노래가 목적인지, 아니면 간단한 식사나 안주류가 중요한지 판단해야 합니다. 업장마다 주력으로 하는 메뉴나 제공되는 서비스 패키지가 다르므로, 예약 시 '어떤 스타일'의 시간을 보내고 싶은지 명확히 전달하면 더 나은 제안을 받을 수 있습니다.</p>
-    </section>
+      <section class="m-img-wp0a" id="timing" role="region" aria-label="당일에 정해도 되는 항목">
+        <h2 class="m-img-wp0a-title">당일에 정해도 되는 항목</h2>
+        <p class="t-ico-ze0a">곡 선정이나 분위기 소품 같은 요소들은 당일 오후 3시 이전에만 최종 정리하면 충분합니다. 단, 인원이 8명을 넘으면 식음료 옵션은 전날 확정하는 쪽이 좋습니다.</p>
+        <div class="x-hero-ur42">
+          <div class="x-hero-ur42-item">
+            <div class="t-foot-d1ud">14:00 · 당일 오후</div>
+            <p>참석자 확정 연락 마감. 이 시점 이후 인원 변동은 대기 인원으로 처리.</p>
+          </div>
+          <div class="x-hero-ur42-item">
+            <div class="t-foot-d1ud">16:00 · 2시간 전</div>
+            <p>예약 재확인 전화 또는 메시지. 이때 취소분이 반영될 수 있음.</p>
+          </div>
+        </div>
+        <blockquote class="n-card-fv5m">
+          “모임 주선자의 역할은 결정하는 게 아니라, 결정할 타이밍을 설계하는 일이다.”
+        </blockquote>
+      </section>
 
-    <section>
-        <h2>FAQ: 처음 방문자를 위한 궁금증</h2>
-        <p>Q: 예약 없이 방문해도 괜찮을까요? A: 운이 좋다면 가능하겠지만, 화곡 지역의 인기 있는 가라오케는 금요일과 토요일 밤에는 예약 없이는 입장이 어려운 경우가 많습니다. 헛걸음을 하지 않기 위해서는 반드시 사전 예약을 권장합니다.</p>
-        <p>Q: 예약 시 선입금은 필수인가요? A: 업장마다 방침이 다릅니다. 예약 확인 과정에서 선입금 여부나 예약금 정책을 상세히 문의하시기 바랍니다. 투명한 거래를 위해 공식적인 절차를 따르는 곳을 선택하는 것이 안전합니다.</p>
-    </section>
-</main>
+      <section class="m-img-wp0a" id="timezone" role="region" aria-label="시간대에 따라 달라지는 선택지">
+        <h2 class="m-img-wp0a-title">시간대에 따라 달라지는 선택지</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:24px 0;">
+          <div>
+            <span class="t-foot-d1ud" style="display:block; margin-bottom:8px;">18:00–20:00</span>
+            <p class="t-ico-ze0a">가장 경쟁이 심한 시간대. 5일 전 예약이 기본이며, 8명 이상이라면 7일 전부터 모니터링합니다.</p>
+          </div>
+          <div>
+            <span class="t-foot-d1ud" style="display:block; margin-bottom:8px;">22:00 이후</span>
+            <p class="t-ico-ze0a">당일 예약 가능성 높음. 단, 주말은 3시간 전 마감 감안해야 합니다. 룸 선택지는 제한적.</p>
+          </div>
+        </div>
+        <p class="t-ico-ze0a">금요일과 토요일은 별도로 분류합니다. 주중 기준과 완전히 다른 패턴을 보이기 때문에, 평일 데이터를 주말에 대입하면 안 됩니다.</p>
+      </section>
 
-<footer>
-    <p>&copy; 2024 Hwagok Night Transit Guide. All rights reserved.</p>
-</footer>
+      <section class="m-img-wp0a" id="faq" role="region" aria-label="자주 묻는 질문">
+        <h2 class="m-img-wp0a-title">FAQ</h2>
+        <div class="v-main-6lfd" style="margin-bottom:24px;">
+          <h3>화곡 가라오케 예약은 몇 시에 걸어야 가장 확률이 높나요?</h3>
+          <p>오후 1시에서 3시 사이입니다. 점심 이후 취소분이 정리되고 저녁 피크 예약이 몰리기 전이라 선택지가 넓습니다.</p>
+        </div>
+        <div class="v-main-6lfd" style="margin-bottom:24px;">
+          <h3>인원이 확정되지 않았을 때 예약 팁이 있나요?</h3>
+          <p>최소 인원으로 예약하고, 확정 3일 전에 추가 인원 가능 여부를 확인하는 유예 구조를 요청하세요. 대부분 수용 가능합니다.</p>
+        </div>
+        <div class="v-main-6lfd" style="margin-bottom:24px;">
+          <h3>당일 예약이 가능한 일반적인 시간대는 언제인가요?</h3>
+          <p>평일 오후 5시 이전, 또는 주말 이른 2시 전후. 그러나 10명 이상 단체는 전날 결정을 권장합니다.</p>
+        </div>
+        <div class="v-main-6lfd">
+          <h3>예약 전에 정리해야 할 정보가 있다면?</h3>
+          <p>인원, 희망 시간, 룸 컨디션, 특별 요청사항(마이크, 음향)을 메모해 두면 예약 과정이 단축됩니다.</p>
+        </div>
+      </section>
 
+      <div class="q-side-643e-bio" role="region" aria-label="작성자 정보">
+        <div class="q-side-643e-avatar">KJ</div>
+        <div>
+          <p style="font-weight:600; font-size:1.1rem;">김지환</p>
+          <p>서울 서남권 지역 정보를 5년간 정리해온 로드 가이드. 모임 준비의 실무 부담을 줄이는 시점 전략을 주로 다룹니다. 참석자 전체를 기준으로 한 결정에 집중합니다.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="r-side-nlx6" role="contentinfo">
+      <p>© 2025 화곡 가라오케 예약 · hwagok-song-note.link-hub.org</p>
+      <div style="margin-top: 12px; font-size:0.7rem;">시간은 결정의 질을 바꾼다.</div>
+    </footer>
+
+    <!-- cache_id:9a2f4b7c3e1d -->
+    <div class="cache-marker" style="opacity:0;height:0;overflow:hidden">a3b9c7f1</div>
+  </div>
+
+  <script>
+    (function() {
+      const hamburger = document.getElementById('hamburger-btn');
+      const navList = document.getElementById('nav-list');
+      if (hamburger && navList) {
+        hamburger.addEventListener('click', function() {
+          navList.classList.toggle('active');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
